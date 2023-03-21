@@ -1,6 +1,6 @@
 
 function getFilmesServer() {
-    var filename = "https://api.themoviedb.org/3/movie/popular?api_key=cb9eac1686194f2c0a04dbae882d8bb3&language=en-US&page=1"
+    var filename = "https://api.themoviedb.org/3/movie/popular?api_key=cb9eac1686194f2c0a04dbae882d8bb3&language=pt-BR&page=1"
     fetch(filename)
         .then(response => response.json())
         .then(dados => criarElement(dados.results))
@@ -12,7 +12,7 @@ function criarElement(dados) {
         if (i < 10) {
             var div = document.createElement("div");
             var img = new Image();
-            img.src = "https://image.tmdb.org/t/p/w400/" + e.poster_path;
+            img.src = "https://image.tmdb.org/t/p/w500/" + e.poster_path;
             img.alt = e.overview;
             div.setAttribute("class", "config");
             div.setAttribute("id", `${i}`);
@@ -31,7 +31,7 @@ function div2(e, i) {
     title = document.createElement("p");
     point = document.createElement("div");
     point.innerHTML = `
-        <div style="display: flex; justify-content: space-between;">
+        <div class="info">
             <p>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-calendar2-date-fill mb-1 me-1" viewBox="0 0 16 16">
